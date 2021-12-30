@@ -4,6 +4,7 @@
 	justify-content: center;
 	flex-direction: row;
     flex-wrap: wrap;
+    row-gap: 20px;
     height: max-content;
     min-height: 40vh;
     min-width: 100vh;
