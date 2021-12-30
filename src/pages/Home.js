@@ -1,6 +1,7 @@
 import React from 'react';
 import movies from '../components/movies'
 import MoviesCard from '../components/MoviesCard';
+import '../styles/home.css'
 
 function Home() {
     return (

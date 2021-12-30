@@ -1,0 +1,11 @@
+.movies{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: row;
+    flex-wrap: wrap;
+    height: max-content;
+    min-height: 40vh;
+    min-width: 100vh;
+	text-transform: capitalize;
+}
