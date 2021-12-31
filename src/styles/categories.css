@@ -1,0 +1,15 @@
+.categories {
+	text-align: center;
+	padding-top: 10px;
+
+}
+.categories-select {
+	margin-right: 15px;
+    background-color: rgb(233, 229, 229);
+    width: 150px;
+    height: 30px;
+    border: none;
+	outline: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px rgb(255, 255, 255);
+}

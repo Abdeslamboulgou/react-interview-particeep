@@ -2,7 +2,7 @@
 
     background: linear-gradient(to bottom, rgb(37, 37, 37) , rgb(39, 39, 39));
     color: rgb(240, 238, 236);
-    width: 40%;
+    flex-grow: 1;  
     padding: 10px;
     border: 1px solid rgb(49, 48, 48);
     box-shadow: 4px 5px 1px gray;
@@ -11,12 +11,8 @@
     word-wrap: break-word;
 
 }
-.title_category{
-    display: flex;
-    justify-content: space-between;
-}
 .movies-card:hover{
-background: linear-gradient(to bottom, rgb(211, 208, 208) , rgb(250, 248, 248));
+background: linear-gradient(to bottom, rgb(153, 149, 149) , rgb(172, 166, 166));
 color: rgb(14, 13, 13);
 }
 h4{
@@ -24,8 +20,8 @@ font-weight: bolder;
 margin-top: 5px;
 }
 #category{
-    color: rgb(41, 40, 40);
-    opacity: 0.8;
+    opacity: 0.9;
+    font-size: 12px;
 }
 .movies-card img{
 object-fit: cover;
@@ -46,33 +42,19 @@ box-shadow: 0 2px 5px  rgb(32, 31, 31);
     transform: scale(1);
 }
 }
-.delete_movie_card{
-background-color: rgb(252, 10, 10);
-font-size: 15px;
-padding: 5px;
-color: aliceblue;
-border: 0.5px;
-border-radius: 5px;
-outline: none;
-cursor: pointer;
-}
-.delete_movie_card:hover{
-background-color: rgb(240, 178, 181);
-color: rgb(209, 0, 0);
-margin-left: 2px;
-}
+
 .fa-thumbs-down{
     transform: scaleX(-1);
     font-size: 25px;
-    color: rgb(241, 166, 166);
+    color: rgb(252, 159, 159);
   
 }
 .fa-thumbs-down:hover{
-    color: rgb(245, 133, 139);
+    color: rgb(250, 123, 129);
 }
 .fa-thumbs-up{
     font-size: 25px;
-    color: rgb(163, 184, 253);
+    color: rgb(143, 168, 250);
 
 }
 .fa-thumbs-up:hover{
