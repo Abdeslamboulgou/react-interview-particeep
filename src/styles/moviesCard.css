@@ -10,6 +10,7 @@
     margin:auto 50px;
     word-wrap: break-word;
     max-width: 50vh;
+    min-width: 20vh;
 
 }
 .movies-card:hover{

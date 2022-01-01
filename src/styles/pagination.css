@@ -1,15 +1,14 @@
 .paginationBttns{
-    margin-top: 50px;
+    margin-top: 60px;
     width: 80%;
     height: 40px;
     list-style: none;
     display: flex;
     justify-content: center;
-    margin-left: 4%;
 }
 .paginationBttns a {
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
     border-radius: 5px;
     border: 1px solid rgb(172, 167, 167);
     color: rgb(17, 17, 17);
@@ -29,7 +28,11 @@
 .paginationDisabled a{
     color: rgb(14, 13, 13);
     background-color: rgb(109, 107, 107);
-    width: 100px;
+}
+.paginationDisabled a:hover{
+    color: rgb(14, 13, 13);
+    background-color: rgb(109, 107, 107);
+    border: 1px solid rgb(172, 167, 167);    
 }
 
 .movies-list{
@@ -37,10 +40,11 @@
 	padding:10px;
 	padding-top: 80px;
 	display: flex;
-    grid-template-columns: 450px 450px 450px ;
+    grid-template-columns: 450px 450px;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	row-gap: 30px
+	justify-content: center;
+	row-gap: 30px;
+    column-gap: 20px;
 }
 
 .fa-times-circle{
@@ -51,9 +55,15 @@
     bottom: 350px;
 	left: 100%;
 }
+
 .fa-times-circle:hover{
       transform: rotate(180deg);
       color: rgb(236, 144, 144);
       font-size: 17px;
+}
 
+.cart-vide{
+    margin-left: 43%;
+    font-size: 40px;
+    color: rgb(233, 202, 202);
 }
