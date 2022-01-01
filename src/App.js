@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import Home from './pages/Home';
-
+import MoviesCard from '../src/components/MoviesCard'
 function App() {
 
   return (
     <div className='app'>
-      <Home />
+      <MoviesCard />
     </div>
   )
 

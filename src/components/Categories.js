@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/categories.css'
 
-function Categories({categories , activeCategory , AfficheMovies}) {
+function Categories({ categories, activeCategory, AfficheMovies }) {
     return (
         <div className='categories'>
             <select className='categories-select' value={activeCategory} onChange={(e) => AfficheMovies(e.target.value)}>

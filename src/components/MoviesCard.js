@@ -1,41 +1,81 @@
-import React from 'react';
-import '../styles/moviesCard.css';
+import React, { useState, useEffect } from 'react';
+import movies from '../data/movies';
+import Pagination from './Pagination';
 
 
-function MoviesCard({cart, updateCart, id, title, category, likes, dislikes}) {
+function MoviesCard() {
 
-    const RemoveMovie = item => {
-        const allMovies = [...cart];
+  const [toggleLike, setToggleLike] = useState(false);
+  const [toggleDisLike, setToggleDisLike] = useState(false);
+  const [likes, setLikes] = useState(movies.likes);
+  const [dislikes, setDislikes] = useState(movies.dislikes);
+  const [counter, setCounter] = useState(0);
 
-        // supprimer element avec splice
-        allMovies.splice(item, 1);
-        console.log(allMovies)
+  //cette methode c'est pour incrementer likes et dislikes
+  const toggleLikeHandler = () => {
+    if (counter === 1) {
+      setLikes((like) => like + 1);
+      setDislikes((dislike) => dislike - 1);
+    } else {
+      setLikes((like) => like + 1);
+    }
+    setCounter(1);
+    setToggleLike(!toggleLike);
+    setToggleDisLike(false);
+  };
 
-        // modifier la cart
-        updateCart(allMovies);
+  //cette  methode c'est pour incrementer dislike si counter egale 1 c-a-d le bouton est déjà cliquer else
+  const toggleDislikeHandler = () => {
+    if (counter === 1) {
+      setDislikes((dislike) => dislike + 1);
+      setLikes((like) => like - 1);
+    } else {
+      setDislikes((dislike) => dislike + 1);
+    }
+    setCounter(1);
+    setToggleDisLike(!toggleDisLike);
+    setToggleLike(false);
+  };
 
+  useEffect(() => { }, [toggleLike, toggleDisLike, counter]);
+
+  const savedFilm = localStorage.getItem('films')
+  const [films, updateCart] = useState(savedFilm ? JSON.parse(savedFilm) : [])
+  //pour la lecture de l'article localStorage (  localStorage.getItem()  )
+  useEffect(() => {
+    // sauvegarder la cart à chaque modification 
+    localStorage.setItem('films', JSON.stringify(films))
+  }, [films])
+  const RemoveMovie = item => {
+
+    // supprimer element avec filter
+    if (window.confirm('vous voulez supprimer ce film ?')) {
+      const newMovies = films.filter((movie) => movie.id !== item);
+
+      // ici pour verifier si le film est supprimer
+      console.log(newMovies)
+      
+      // modifier la cart
+      updateCart(newMovies);
+    
     }
 
-    return (
-        <div className="movies-card">
+  }
 
-              <div >
-                  <img className="movies_card_image" src="https://via.placeholder.com/400x250 " alt="" />
-                  <h4> {title}</h4>
-                  <h4 id='category'>{category}</h4>
-                  
-              </div>
-              <div className="movie_like_dislike">
-                  <span> <i class="fas fa-thumbs-up"></i>  {likes} </span>
-                  <span> <i class="fas fa-thumbs-down"></i>  {dislikes}</span>
-              </div>
-              <div>
-              <i style={{ cursor: 'pointer' }} className='fa fa-times-circle' onClick={() => RemoveMovie(id)}></i>
-              </div>
-              </div>
-    )
-              
-    
+  return (
+    <Pagination
+      toggleDislikeHandler={toggleDislikeHandler}
+      toggleLikeHandler={toggleLikeHandler}
+      RemoveMovie={RemoveMovie}
+      likes={likes}
+      setLikes={setLikes}
+      dislikes={dislikes}
+      setDislikes={setDislikes}
+    />
+  )
+
+
+
 }
 
 export default MoviesCard;
