@@ -33,7 +33,7 @@ function Pagination({ RemoveMovie }) {
                 AfficheMovies={AfficheMovies}
             />
             <div className='movies-list'>
-                {films.length > 0 ? (
+                {displayMovies.length > 0 ? (
                     displayMovies.map((movie) => !activeCategory || activeCategory === movie.category ? (
 
                         <div className="movies-card" key={movie.id}  >

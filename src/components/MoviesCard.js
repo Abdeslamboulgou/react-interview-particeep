@@ -2,14 +2,15 @@ import React from 'react';
 import Pagination from './Pagination';
 
 
-function MoviesCard({ films, updateFilms }) {
+function MoviesCard({film,updateFilm}) {
 
   const RemoveMovie = item => {
 
     // supprimer element avec filter
     if (window.confirm('vous voulez supprimer ce film ?')) {
-      const newMovies = films.filter((movie) => movie.id !== item);
-      updateFilms(newMovies);
+      const newMovies = film.filter((movie) => movie.id !== item);
+      console.log(newMovies);
+      updateFilm(newMovies);
 
     }
   }
