@@ -6,12 +6,11 @@ import '../styles/pagination.css'
 import '../styles/moviesCard.css'
 import LikesDislikes from './LikesDislikes';
 
-function Pagination({ RemoveMovie }) {
+function Pagination({ RemoveMovie , films}) {
 
     const [activeCategory, AfficheMovies] = useState('');
     const categories = movies.reduce((acc, movie) => acc.includes(movie.category) ? acc : acc.concat(movie.category), [])
 
-    const [films, setFilms] = useState(movies);
     const [pageNumber, setPageNumber] = useState(0);
 
     const moviesPerPage = 4;
@@ -51,16 +50,17 @@ function Pagination({ RemoveMovie }) {
                         </div>) : null
 
                     )) : (<div className='cart-vide'>Cart vide</div>)}
-
-                <ReactPaginate
-                    previousLabel={"Précédent"}
-                    nextLabel={"Suivant.."}
-                    pageCount={pageCount}
-                    onPageChange={changePage}
-                    containerClassName={"paginationBttns"}
-                    disabledClassName={"paginationDisabled"}
-                    activeClassName={"paginationActive"}
-                />
+                {films.length !== 0 && (
+                    <ReactPaginate
+                        previousLabel={"Précédent"}
+                        nextLabel={"Suivant.."}
+                        pageCount={pageCount}
+                        onPageChange={changePage}
+                        containerClassName={"paginationBttns"}
+                        disabledClassName={"paginationDisabled"}
+                        activeClassName={"paginationActive"}
+                    />
+                )}
             </div>
         </div>
     );

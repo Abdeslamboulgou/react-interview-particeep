@@ -38,8 +38,8 @@ function LikesDislikes({ movie }) {
     useEffect(() => { }, [toggleLike, toggleDisLike, counter]);
     return (
         <div className="movie_like_dislike">
-            <span> <i class="fas fa-thumbs-up" onClick={toggleLikeHandler} ></i>  {likes} </span>
-            <span> <i class="fas fa-thumbs-down" onClick={toggleDislikeHandler}  ></i> {dislikes}  </span>
+            <span> <button onClick={toggleLikeHandler}  disabled={toggleLike} > <i class="fas fa-thumbs-up" /> </button> {likes} </span>
+            <span> <button onClick={toggleDislikeHandler}  disabled={toggleDisLike}><i class="fas fa-thumbs-down"  /> </button>{dislikes}  </span>
         </div>
     );
 }

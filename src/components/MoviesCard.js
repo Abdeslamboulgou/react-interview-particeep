@@ -1,21 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Pagination from './Pagination';
+import movies from '../data/movies';
 
 
-function MoviesCard({film,updateFilm}) {
+function MoviesCard() {
+
+  const [films , updateFilms] = useState(movies)
+
 
   const RemoveMovie = item => {
 
     // supprimer element avec filter
     if (window.confirm('vous voulez supprimer ce film ?')) {
-      const newMovies = film.filter((movie) => movie.id !== item);
+      const newMovies = films.filter((movie) => movie.id !== item);
       console.log(newMovies);
-      updateFilm(newMovies);
+      updateFilms(newMovies);
 
     }
   }
   return (
-    <Pagination  RemoveMovie={RemoveMovie}/>
+    <Pagination  RemoveMovie={RemoveMovie} films={films} updateFilms={updateFilms}/>
   )
 }
 
